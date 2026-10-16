@@ -1,0 +1,345 @@
+/* Премиальный нестандартный дизайн "Dark Neon Glass" */
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+:root {
+    --bg-main: #060913;
+    --bg-card: rgba(15, 22, 42, 0.65);
+    --border-glass: rgba(255, 255, 255, 0.06);
+    --accent-neon: #00ffcc;
+    --accent-glow: rgba(0, 255, 204, 0.15);
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: 
+        radial-gradient(circle at 80% 20%, rgba(0, 255, 204, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 15% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 40%);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Навигация будущего */
+.header {
+    background: rgba(6, 9, 19, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #fff 0%, var(--accent-neon) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-left: 2.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav a:hover, .nav a.active {
+    color: var(--accent-neon);
+    text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-neon);
+    box-shadow: 0 0 8px var(--accent-neon);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after, .nav a.active::after {
+    width: 100%;
+}
+
+/* Главный блок (Hero) */
+.hero {
+    padding: 8rem 0 6rem;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    color: var(--text-secondary);
+}
+
+/* Кнопки в стиле Киберпанк/Лакшери */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary {
+    background: var(--accent-neon);
+    color: #000;
+    box-shadow: 0 4px 20px rgba(0, 255, 204, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(0, 255, 204, 0.5);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border-glass);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-primary);
+    backdrop-filter: blur(5px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Асимметричная сетка матовых карточек */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem 0 6rem;
+}
+
+.feature-card, .invest-card, .chart-mock, .news-sidebar, .market-ticker {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    padding: 2.5rem;
+    border-radius: 24px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card:hover, .invest-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(0, 255, 204, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255,255,255,0.02);
+}
+
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+}
+
+.feature-card h3, .invest-card h3, .chart-mock h3, .news-sidebar h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.feature-card p, .invest-card p, .news-item p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Страница инвестиций */
+.main-content {
+    flex: 1;
+    padding: 5rem 0;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.investment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.invest-card .yield {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-neon);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.risk-badge {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2rem;
+}
+
+.risk-low { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
+.risk-medium { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
+.risk-high { background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
+
+.calculator-preview {
+    margin-top: 6rem;
+    background: linear-gradient(135deg, rgba(15, 22, 42, 0.8) 0%, rgba(6, 9, 13, 0.8) 100%);
+    border: 1px solid var(--border-glass);
+    padding: 4rem;
+    border-radius: 32px;
+}
+
+.form-mock {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.form-mock input {
+    padding: 1.1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.form-mock input:focus {
+    outline: none;
+    border-color: var(--accent-neon);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Аналитика и графики */
+.market-ticker {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem 2.5rem;
+    border-radius: 100px;
+    margin-bottom: 4rem;
+}
+
+.ticker-item { font-weight: 600; font-size: 0.95rem; }
+.ticker-item span { color: var(--text-secondary); margin-right: 0.5rem; }
+.up { color: #10b981; }
+.down { color: #ef4444; }
+
+.analytics-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2.5rem;
+}
+
+@media(max-width: 992px) {
+    .analytics-layout { grid-template-columns: 1fr; }
+    .market-ticker { border-radius: 24px; }
+}
+
+.visual-graph-placeholder {
+    height: 320px;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-top: 2.5rem;
+    position: relative;
+    background: linear-gradient(to top, rgba(0, 255, 204, 0.03) 0%, transparent 100%);
+    border-radius: 0 0 0 16px;
+}
+
+.graph-line {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, var(--accent-neon));
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+    clip-path: polygon(0% 75%, 15% 55%, 35% 70%, 55% 25%, 75% 45%, 100% 5%);
+}
+
+.news-item {
+    margin-top: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.news-item:last-child { border: none; padding: 0; }
+.news-item h4 { font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem; font-weight: 600; }
+
+/* Футер */
+.footer {
+    background: #03050a;
+    border-top: 1px solid var(--border-glass);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+}
